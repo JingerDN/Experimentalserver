@@ -1,5 +1,5 @@
 const jwt=require("jsonwebtoken");
-const config=require("config");
+//const config=require("config");
 
 module.exports=(req,res,next)=>{
     if(req.methid==="OPTIONS"){
@@ -10,7 +10,7 @@ module.exports=(req,res,next)=>{
         if(!token){
             res.status(401).json({message:"Authorization error"})
         }
-        const decoded=jwt.verify(token,config.get("secretKey"));
+        const decoded=jwt.verify(token,process.env.secretKey);
         console.log(decoded);
         req.user=decoded;
         next();
@@ -20,3 +20,4 @@ module.exports=(req,res,next)=>{
 
     }
 }
+//config.get("secretKey")

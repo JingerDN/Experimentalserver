@@ -5,7 +5,8 @@ node_modules
 .idea
 .DS_Store
 .env
-
+config
+/config
 
 files
 static

@@ -1,7 +1,7 @@
 const Router=require("express");
 const User=require("../models/User");
 const bcrypt=require("bcryptjs");
-const config=require("config");
+//const config=require("config");
 const jwt=require("jsonwebtoken");
 const {check,validationResult}=require("express-validator");
 const router=new Router();
@@ -57,7 +57,7 @@ async(req,res)=>{
             return res.status(401).json({message:"Invalid password"});
         }
 
-        const token=jwt.sign({id:user.id},config.get("secretKey"),{expiresIn:"1h"});
+        const token=jwt.sign({id:user.id},process.env.secretKey,{expiresIn:"1h"}); //config.get("secretKey")
         return res.json({
             token,
             user:{
@@ -81,7 +81,7 @@ async(req,res)=>{
     try{
         const user=await User.findOne({_id:req.user.id});
         console.log(user);
-        const token=jwt.sign({id:user.id},config.get("secretKey"),{expiresIn:"1h"});
+        const token=jwt.sign({id:user.id},process.env.secretKey,{expiresIn:"1h"});
         return res.json({
             token,
             user:{
