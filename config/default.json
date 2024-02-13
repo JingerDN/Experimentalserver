@@ -1,0 +1,7 @@
+{
+    "serverPort":5000,
+    "dbUrl":"mongodb+srv://Jinger:u0ZRNAdODoKj1J2W@cloud.bzalr.mongodb.net/cloud?retryWrites=true&w=majority",
+    "secretKey":"cloud-secret-key",
+    "filePath":"/Users/jinger/cloudStorage/server/files",
+    "staticPath":"/Users/jinger/cloudStorage/server/static"
+}
