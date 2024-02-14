@@ -1,5 +1,5 @@
 const jwt=require("jsonwebtoken");
-//const config=require("config");
+require('dotenv').config();
 
 module.exports=(req,res,next)=>{
     if(req.methid==="OPTIONS"){
@@ -20,4 +20,3 @@ module.exports=(req,res,next)=>{
 
     }
 }
-//config.get("secretKey")
